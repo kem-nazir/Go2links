@@ -35,6 +35,14 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%232563EB'/><stop offset='100%25' stop-color='%2306B6D4'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='44' font-family='Arial Black' font-size='32' font-weight='900' text-anchor='middle' fill='white'>G</text></svg>" />
   <meta name="theme-color" content="#2563EB" />
 
+  <!-- ═══ PWA ═══ -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Go2Links" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -107,6 +115,20 @@
     .btn-support{background:linear-gradient(135deg,#F59E0B,#EF4444);color:white;box-shadow:0 4px 20px rgba(245,158,11,.4);animation:supportPulse 2.5s ease-in-out infinite}
     .btn-support:hover{transform:translateY(-2px) scale(1.04)}
     @keyframes supportPulse{0%,100%{box-shadow:0 4px 20px rgba(245,158,11,.4)}50%{box-shadow:0 4px 32px rgba(245,158,11,.7),0 0 0 6px rgba(245,158,11,.12)}}
+
+    /* Share FAB */
+    /* ═══ PWA INSTALL BANNER ═══ */
+    .pwa-banner{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(15,23,42,0.97);border-top:1px solid rgba(37,99,235,0.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:16px 20px;display:flex;align-items:center;gap:14px;transform:translateY(100%);transition:transform 0.45s cubic-bezier(.22,.68,0,1.2);box-shadow:0 -8px 40px rgba(0,0,0,0.5)}
+    .pwa-banner.visible{transform:translateY(0)}
+    .pwa-banner-icon{width:48px;height:48px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:22px;font-weight:800;color:white;box-shadow:0 4px 16px rgba(37,99,235,0.4)}
+    .pwa-banner-text{flex:1;min-width:0}
+    .pwa-banner-title{font-family:var(--font-display);font-size:.92rem;font-weight:700;color:white;line-height:1.2;margin-bottom:2px}
+    .pwa-banner-sub{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.3}
+    .pwa-banner-actions{display:flex;gap:8px;flex-shrink:0}
+    .pwa-btn-install{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:50px;background:linear-gradient(135deg,#2563EB,#3B82F6);color:white;border:none;font-family:var(--font-body);font-size:.82rem;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.4);transition:all .2s ease;white-space:nowrap}
+    .pwa-btn-install:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,0.6)}
+    .pwa-btn-dismiss{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);font-size:16px;cursor:pointer;transition:all .2s ease;flex-shrink:0}
+    .pwa-btn-dismiss:hover{background:rgba(255,255,255,0.15);color:white}
 
     /* Share FAB */
     .share-fab{position:fixed;bottom:28px;right:28px;z-index:100;display:flex;align-items:center;gap:8px;padding:13px 20px;background:linear-gradient(135deg,#2563EB,#06B6D4);color:white;border:none;border-radius:50px;font-family:var(--font-body);font-size:.85rem;font-weight:600;cursor:pointer;box-shadow:0 8px 32px rgba(37,99,235,.5);transition:all .25s cubic-bezier(.22,.68,0,1.2);animation:fabIn 1s 1s cubic-bezier(.22,.68,0,1.2) both}
@@ -224,6 +246,9 @@
       .hero-buttons .btn{justify-content:center}
       .share-fab span{display:none}
       .share-fab{padding:13px 16px;border-radius:50%;width:50px;height:50px;justify-content:center}
+      .pwa-banner{padding:14px 16px;gap:10px}
+      .pwa-banner-sub{display:none}
+      .pwa-btn-install{padding:8px 14px;font-size:.78rem}
     }
     .tool-card:nth-child(1){animation-delay:.05s}.tool-card:nth-child(2){animation-delay:.10s}.tool-card:nth-child(3){animation-delay:.15s}.tool-card:nth-child(4){animation-delay:.20s}.tool-card:nth-child(5){animation-delay:.25s}.tool-card:nth-child(6){animation-delay:.30s}.tool-card:nth-child(7){animation-delay:.35s}.tool-card:nth-child(8){animation-delay:.40s}.tool-card:nth-child(9){animation-delay:.45s}.tool-card:nth-child(10){animation-delay:.50s}.tool-card:nth-child(11){animation-delay:.55s}.tool-card:nth-child(12){animation-delay:.60s}
   </style>
@@ -308,7 +333,18 @@
 </button>
 <div class="toast" id="toast"></div>
 
-<!-- Modal: À propos -->
+<!-- ═══ PWA INSTALL BANNER ═══ -->
+<div class="pwa-banner" id="pwaBanner" role="complementary" aria-label="Installer l'application">
+  <div class="pwa-banner-icon">G</div>
+  <div class="pwa-banner-text">
+    <div class="pwa-banner-title">Ajouter Go2Links à l'écran d'accueil</div>
+    <div class="pwa-banner-sub">Accès instantané, même sans internet</div>
+  </div>
+  <div class="pwa-banner-actions">
+    <button class="pwa-btn-install" id="pwaInstallBtn">➕ Installer</button>
+    <button class="pwa-btn-dismiss" onclick="dismissPWA()" aria-label="Fermer">✕</button>
+  </div>
+</div>
 <div class="modal-overlay" id="aboutModal" role="dialog" aria-modal="true">
   <div class="modal">
     <button class="modal-close" onclick="closeAbout()">✕</button>
@@ -583,6 +619,59 @@ document.addEventListener('keydown',e=>{
 
 const urlQ=new URLSearchParams(window.location.search).get('q');
 if(urlQ){document.getElementById('searchInput').value=urlQ;searchQuery=urlQ.toLowerCase();}
+
+/* ─── PWA ─── */
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => {
+    if (!window.matchMedia('(display-mode: standalone)').matches) {
+      document.getElementById('pwaBanner').classList.add('visible');
+    }
+  }, 3000);
+});
+
+document.getElementById('pwaInstallBtn').addEventListener('click', async () => {
+  const banner = document.getElementById('pwaBanner');
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      banner.classList.remove('visible');
+      showToast('✅ Go2Links ajouté à ton écran d\'accueil !');
+    }
+    deferredPrompt = null;
+  } else {
+    showToast('Sur iOS : appuie sur 📤 puis "Sur l\'écran d\'accueil"');
+    setTimeout(() => banner.classList.remove('visible'), 3500);
+  }
+});
+
+function dismissPWA() {
+  document.getElementById('pwaBanner').classList.remove('visible');
+  localStorage.setItem('pwaDismissed', Date.now() + 7 * 24 * 60 * 60 * 1000);
+}
+
+window.addEventListener('load', () => {
+  const dismissed = localStorage.getItem('pwaDismissed');
+  if (dismissed && Date.now() < Number(dismissed)) {
+    document.getElementById('pwaBanner').style.display = 'none';
+  }
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('pwaBanner').style.display = 'none';
+  }
+});
+
+/* ─── SERVICE WORKER ─── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW Go2Links enregistré ✅', reg.scope))
+      .catch(err => console.warn('SW erreur:', err));
+  });
+}
 
 buildPage();
 </script>
